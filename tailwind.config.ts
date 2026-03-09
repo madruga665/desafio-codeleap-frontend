@@ -13,7 +13,7 @@ const config: Config = {
         background: '#DDDDDD',
       },
       fontFamily: {
-        sans: ['var(--font-spline-sans)', 'sans-serif'],
+        sans: ['var(--font-roboto-sans)', 'sans-serif'],
       },
     },
   },
