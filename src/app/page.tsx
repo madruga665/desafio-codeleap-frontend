@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Signup() {
   return (
-    <main className="flex flex-col w-screen h-screen items-center justify-center">
+    <main className="flex flex-col w-screen h-screen items-center justify-center bg-[#DDDDDD]">
       <section className="w-[90%] max-w-125 bg-white border border-[#CCCCCC] p-6 rounded-2xl">
         <Heading1 className="mb-6">Welcome to CodeLeap network!</Heading1>
         <SignupForm />

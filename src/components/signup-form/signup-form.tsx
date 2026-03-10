@@ -4,21 +4,22 @@ import { useState } from "react";
 import { Button } from "../button/button";
 import { InputField } from "../inputs/input-field/input-field";
 import { useRouter } from "next/navigation";
+import { useUsername } from "@/src/hooks/use-username";
 
 
 export function SignupForm() {
-  const [username, setUsername] = useState("");
+  const [usernameInput, setUsernameInput] = useState("");
+  const { saveUsername } = useUsername();
   const router = useRouter();
 
-  const handleSubmit = (e: React.SubmitEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (username.trim()) {
-      sessionStorage.setItem('@codeleap:username', username);
-      setUsername("");
+    if (usernameInput.trim()) {
+      saveUsername(usernameInput.trim());
+      setUsernameInput("");
+      router.push('/home');
     }
-
-    router.push('/home');
   };
 
   return (
@@ -27,14 +28,14 @@ export function SignupForm() {
         id="username"
         label="Please enter your username"
         placeholder="John doe"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={usernameInput}
+        onChange={(e) => setUsernameInput(e.target.value)}
       />
       <div className="flex flex-row justify-end w-full mt-4">
         <Button
           variant="primary"
           type="submit"
-          disabled={!username.trim()}
+          disabled={!usernameInput.trim()}
         >
           ENTER
         </Button>

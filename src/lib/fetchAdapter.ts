@@ -17,6 +17,7 @@ export async function fetchAdapter<T>({
 
   try {
     const response = await fetch(`${apiBaseUrl}${url}`, {
+      cache: 'no-store',
       ...options,
       headers: {
         'Content-type': 'application/json',

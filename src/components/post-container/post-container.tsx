@@ -1,4 +1,5 @@
 'use client'
+import { useUsername } from "@/src/hooks/use-username";
 import { DeleteIcon } from "../icons/delete-icon/delete-icon";
 import { EditIcon } from "../icons/edit-icon/edit-icon";
 import { Heading1 } from "../typography/heading/heading1";
@@ -11,7 +12,7 @@ type PostContainerProps = {
 }
 
 export function PostContainer({ content, createdAt, title, username }: PostContainerProps) {
-  const currentUser = sessionStorage.getItem('@codeleap:username');
+  const { username: currentUser } = useUsername();
   const isPostFromCurrentUser = currentUser === username;
 
   return (

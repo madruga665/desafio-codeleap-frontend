@@ -1,5 +1,6 @@
 import { getAllPostsRepository } from '@/src/repositories/posts';
 import { formatDistanceToNow } from 'date-fns';
+import { parseISO } from 'date-fns/fp';
 
 type PostViewModel = {
   id: number;
@@ -18,7 +19,7 @@ export async function getAllPostsService() {
       username: item.username,
       title: item.title,
       content: item.content,
-      createdAt: formatDistanceToNow(new Date(item.created_datetime), {
+      createdAt: formatDistanceToNow(parseISO(item.created_datetime), {
         addSuffix: true,
       }).replace('about ', ''),
     })) ?? [];
