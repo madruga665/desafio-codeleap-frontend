@@ -4,7 +4,7 @@ type FetchAdapterProps = {
 };
 
 export type ApiResponse<T> = {
-  data: T[] | null;
+  data: T | null;
   status: number;
   error: string | null;
 };
@@ -24,8 +24,10 @@ export async function fetchAdapter<T>({
         ...options.headers,
       },
     });
+
     const status = response.status;
-    const data: T[] = await response.json();
+    const text = await response.text();
+    const data: T = text ? JSON.parse(text) : null;
 
     if (!response.ok) {
       return {

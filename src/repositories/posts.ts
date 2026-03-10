@@ -9,7 +9,7 @@ type Post = {
 };
 
 export async function getAllPostsRepository() {
-  const data = await fetchAdapter<Post>({ url: '/posts', options: { method: 'GET' } });
+  const data = await fetchAdapter<Post[]>({ url: '/posts', options: { method: 'GET' } });
 
   return data;
 }

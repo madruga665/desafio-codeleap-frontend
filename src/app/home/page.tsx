@@ -3,6 +3,7 @@ import { Heading1 } from "@/src/components/typography/heading/heading1";
 import { Metadata } from "next";
 import { getAllPostsService } from "@/src/services/posts";
 import { PostContainer } from "@/src/components/post-container/post-container";
+import { PostsEmptyState } from "@/src/components/posts-empty-state/posts-empty-state";
 
 export const metadata: Metadata = {
   title: 'CodeLeap Network | home',
@@ -19,7 +20,7 @@ export default async function Home() {
       </section>
 
       <section className="flex flex-col w-[90%] max-w-188 gap-6">
-        {data.map((item) => (
+        {data.length === 0 ? <PostsEmptyState /> : data.map((item) => (
           <PostContainer content={item.content} title={item.title} key={item.id} createdAt={item.createdAt} username={item.username} />
         ))}
       </section>
