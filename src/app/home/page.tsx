@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   title: 'CodeLeap Network | home',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const data = await getAllPostsService();
 
