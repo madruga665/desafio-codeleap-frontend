@@ -1,0 +1,84 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "username": "madruga665",
+      "created_datetime": "2026-03-10T14:00:00.000Z",
+      "title": "Como configurar o Tailwind?",
+      "content": "Estou tentando usar o twMerge mas está dando conflito.",
+      "author_ip": "192.168.1.45"
+    },
+    {
+      "id": 2,
+      "username": "dev_ninja",
+      "created_datetime": "2026-03-10T13:45:20.000Z",
+      "title": "Dica de Next.js",
+      "content": "Sempre use Server Components para SEO.",
+      "author_ip": "172.16.254.1"
+    },
+    {
+      "id": 3,
+      "username": "madruga665",
+      "created_datetime": "2026-03-10T12:30:15.000Z",
+      "title": "Dúvida sobre clsx",
+      "content": "O clsx aceita objetos aninhados?",
+      "author_ip": "192.168.1.45"
+    },
+    {
+      "id": 4,
+      "username": "ana_frontend",
+      "created_datetime": "2026-03-10T11:20:00.000Z",
+      "title": "CSS Modules vs Tailwind",
+      "content": "Qual vocês preferem em 2026?",
+      "author_ip": "189.12.43.102"
+    },
+    {
+      "id": 5,
+      "username": "madruga665",
+      "created_datetime": "2026-03-10T10:15:00.000Z",
+      "title": "Erro no deploy",
+      "content": "Minha build falhou no Vercel por causa de tipos.",
+      "author_ip": "192.168.1.45"
+    },
+    {
+      "id": 6,
+      "username": "rick_script",
+      "created_datetime": "2026-03-10T09:05:45.000Z",
+      "title": "Node v24 lançado",
+      "content": "Muitas novidades interessantes no runtime.",
+      "author_ip": "200.150.10.5"
+    },
+    {
+      "id": 7,
+      "username": "madruga665",
+      "created_datetime": "2026-03-10T08:00:00.000Z",
+      "title": "Bom dia grupo",
+      "content": "Alguém conseguiu resolver o bug do scroll?",
+      "author_ip": "192.168.1.45"
+    },
+    {
+      "id": 8,
+      "username": "lucas_fullstack",
+      "created_datetime": "2026-03-10T07:45:30.000Z",
+      "title": "Zod é vida",
+      "content": "Validação de esquemas nunca foi tão fácil.",
+      "author_ip": "177.42.12.88"
+    },
+    {
+      "id": 9,
+      "username": "shadow_coder",
+      "created_datetime": "2026-03-10T06:30:00.000Z",
+      "title": "Dark mode no Next",
+      "content": "Tutorial rápido de como implementar com Tailwind.",
+      "author_ip": "45.122.3.11"
+    },
+    {
+      "id": 10,
+      "username": "user_unknown",
+      "created_datetime": "2026-03-10T05:15:20.000Z",
+      "title": "Teste de API",
+      "content": "123 testando o conteúdo do post.",
+      "author_ip": "10.0.0.5"
+    }
+  ]
+}
