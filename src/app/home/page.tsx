@@ -13,14 +13,8 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  // Buscamos os dados diretamente do Service no Server Component (sem requisição HTTP interna!)
   const data = await postsService.getPaginatedPosts(10, 0, '');
-  
-  // Formatamos as datas no servidor
-  const posts = data.results.map(item => ({
-    ...item,
-    createdAt: formatDistanceToNow(new Date(item.created_datetime), { addSuffix: true })
-  }));
+
 
   return (
     <>
@@ -30,11 +24,12 @@ export default async function Home() {
       </section>
 
       <section className="flex flex-col w-[90%] max-w-188 gap-6">
-        {posts.length === 0 ? (
+        {data.posts.length === 0 ? (
           <PostsEmptyState />
         ) : (
-          posts.map((item) => (
+          data.posts.map((item) => (
             <PostContainer
+              id={item.id}
               content={item.content}
               title={item.title}
               key={item.id}

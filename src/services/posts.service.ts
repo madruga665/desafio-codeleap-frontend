@@ -1,3 +1,4 @@
+import { formatDistanceToNow, formatISO } from 'date-fns';
 import { postsRepository } from '../repositories/posts.repository';
 
 export class PostsService {
@@ -14,12 +15,24 @@ export class PostsService {
     const previous =
       offset > 0 ? `${baseUrl}?limit=${limit}&offset=${Math.max(0, prevOffset)}` : null;
 
+    const posts = results.map((item) => ({
+      ...item,
+      createdAt: formatDistanceToNow(formatISO(item.created_datetime), { addSuffix: true }).replace(
+        'about',
+        '',
+      ),
+    }));
+
     return {
       count,
       next,
       previous,
-      results,
+      posts,
     };
+  }
+
+  async getPostById(id: number) {
+    return postsRepository.findById(id);
   }
 
   async createPost(data: { username: string; title: string; content: string }) {

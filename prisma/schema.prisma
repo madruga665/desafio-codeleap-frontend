@@ -15,4 +15,5 @@ model Post {
   created_datetime DateTime @default(now())
   title            String
   content          String
+  deleted          Boolean  @default(false)
 }
