@@ -38,7 +38,7 @@ export function DeletePostModal({ postId }: DeletePostModalProps) {
     <dialog
       ref={dialogRef}
       onClose={handleClose}
-      className="z-50 flex items-center justify-center w-full h-full bg-transparent backdrop:bg-[#777777]/80"
+      className="fixed inset-0 z-50 m-0 flex h-full w-full max-w-none items-center justify-center bg-transparent p-0 backdrop:bg-[#777777]/80"
     >
       <div className="bg-white p-6 rounded-2xl w-[90%] max-w-165 shadow-lg flex flex-col gap-10">
         <h2 className="text-xl font-bold text-black">
