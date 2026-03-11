@@ -24,6 +24,7 @@ export function PostForm() {
   const {
     register,
     reset,
+    setError,
     formState: { errors, isValid }
   } = useForm<PostFormData>({
     resolver: zodResolver(postSchema),
@@ -34,7 +35,19 @@ export function PostForm() {
     if (state?.success) {
       reset()
     }
-  }, [state, reset])
+
+    if (state?.errors?.properties) {
+      Object.entries(state.errors.properties).forEach(([field, errorData]) => {
+        const message = (errorData).errors?.[0]
+        if (message) {
+          setError(field as keyof PostFormData, {
+            type: 'server',
+            message
+          })
+        }
+      })
+    }
+  }, [state, reset, setError])
 
   return (
     <form action={action}>
