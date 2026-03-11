@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto, Roboto_Mono } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 
 const robotoSans = Roboto({
   variable: '--font-roboto-sans',
@@ -23,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <Analytics />
       <body className={`${robotoSans.variable} ${robotoMono.variable} antialiased`}>{children}</body>
     </html>
   );
