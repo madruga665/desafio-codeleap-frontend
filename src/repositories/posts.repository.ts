@@ -9,6 +9,7 @@ export type FindAllOptions = {
 export class PostsRepository {
   async findAll({ limit, offset }: FindAllOptions): Promise<Post[]> {
     return prisma.post.findMany({
+      where: { deleted: false },
       take: limit,
       skip: offset,
       orderBy: {
@@ -18,25 +19,34 @@ export class PostsRepository {
   }
 
   async countAll(): Promise<number> {
-    return prisma.post.count();
+    return prisma.post.count({
+      where: { deleted: false },
+    });
   }
 
-  async create(data: Omit<Post, 'id' | 'created_datetime'>): Promise<Post> {
+  async findById(id: number): Promise<Post | null> {
+    return prisma.post.findFirst({
+      where: { id, deleted: false },
+    });
+  }
+
+  async create(data: Omit<Post, 'id' | 'created_datetime' | 'deleted'>): Promise<Post> {
     return prisma.post.create({
       data,
     });
   }
 
-  async update(id: number, data: Partial<Omit<Post, 'id' | 'created_datetime'>>): Promise<Post> {
+  async update(id: number, data: Partial<Omit<Post, 'id' | 'created_datetime' | 'deleted'>>): Promise<Post> {
     return prisma.post.update({
-      where: { id },
+      where: { id, deleted: false },
       data,
     });
   }
 
   async delete(id: number): Promise<void> {
-    await prisma.post.delete({
+    await prisma.post.update({
       where: { id },
+      data: { deleted: true },
     });
   }
 }

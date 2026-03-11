@@ -1,17 +1,19 @@
 'use client'
+import Link from "next/link";
 import { useUsername } from "@/src/hooks/use-username";
 import { DeleteIcon } from "../icons/delete-icon/delete-icon";
 import { EditIcon } from "../icons/edit-icon/edit-icon";
 import { Heading1 } from "../typography/heading/heading1";
 
 type PostContainerProps = {
+  id: number;
   username: string;
   title: string;
   content: string;
   createdAt: string;
 }
 
-export function PostContainer({ content, createdAt, title, username }: PostContainerProps) {
+export function PostContainer({ content, createdAt, title, username, id }: PostContainerProps) {
   const { username: currentUser } = useUsername();
   const isPostFromCurrentUser = currentUser === username;
 
@@ -22,12 +24,12 @@ export function PostContainer({ content, createdAt, title, username }: PostConta
           <Heading1 className="text-white truncate">{title}</Heading1>
         </div>
         {isPostFromCurrentUser && <div className="flex gap-6">
-          <button aria-label="Deletar item" className="cursor-pointer">
+          <Link href={`/home/posts/${id}/delete`} scroll={false} aria-label="Deletar item" className="cursor-pointer">
             <DeleteIcon />
-          </button>
-          <button aria-label="Editar item" className="cursor-pointer">
+          </Link>
+          <Link href={`/home/posts/${id}/edit`} scroll={false} aria-label="Editar item" className="cursor-pointer">
             <EditIcon />
-          </button>
+          </Link>
         </div>}
       </header>
 
